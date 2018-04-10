@@ -17,5 +17,7 @@ public class GuestBookEntry {
     private String user;
     @NotEmpty
     private String comment;
+
+
 }
 

@@ -10,13 +10,14 @@ import java.util.List;
 
 @RestController
 public class GuestBookController {
+    @Autowired
+    private GuestBookService guestBookService;
 
     @GetMapping("/")
     public List<GuestBookEntry> testMapping () {
         return guestBookService.findAllEntries ();
     }
 
-    @Autowired
-    private GuestBookService guestBookService;
+
 
 }
