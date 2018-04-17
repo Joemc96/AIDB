@@ -1,6 +1,7 @@
-package domain;
+package com.joseph.guestbook.domain;
 
 import org.springframework.data.repository.CrudRepository;
+
 import java.util.List;
 
 public interface GuestBookEntryRepository

@@ -1,7 +1,7 @@
-package service;
+package com.joseph.guestbook.service;
 
-import domain.GuestBookEntry;
-import domain.GuestBookEntryRepository;
+import com.joseph.guestbook.domain.GuestBookEntry;
+import com.joseph.guestbook.domain.GuestBookEntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

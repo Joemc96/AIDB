@@ -1,10 +1,10 @@
-package controller;
+package com.joseph.guestbook.controller;
 
-import domain.GuestBookEntry;
+import com.joseph.guestbook.domain.GuestBookEntry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.GuestBookService;
+import com.joseph.guestbook.service.GuestBookService;
 
 import java.util.List;
 
