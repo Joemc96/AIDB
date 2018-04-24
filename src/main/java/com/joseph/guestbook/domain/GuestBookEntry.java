@@ -5,11 +5,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "GUEST_BOOK_ENTRY")
+@Table(name = "entries")
 public class GuestBookEntry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "entry_id")
     private Integer id;
     @NotEmpty
     private String user;
@@ -17,5 +18,28 @@ public class GuestBookEntry {
     private String comment;
 
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
 
