@@ -7,6 +7,7 @@ import com.joseph.guestbook.service.GuestBookService;
 
 import java.util.List;
 
+@RequestMapping ("/api")
 @RestController
 public class GuestBookController {
     @Autowired

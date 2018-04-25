@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Spring Guestbook</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+</head>
+<body>
+
+<h1>Guest Book</h1>
+
+
+<div th:if="${entries.isEmpty()}">
+    <p>There are no comments in the Guestbook. What a pity.</p>
+</div>
+
+<div th:if="${!entries.isEmpty()}">
+<table>
+    <tr>
+        <th>User</th>
+        <th>Comment</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="entry: ${entries}">
+        <td th:text="${entry.user}"></td>
+        <td th:text="${entry.comment}"></td>
+        <td><a th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
+    </tr>
+</table>
+</div>
+
+<h2>Add a New Comment</h2>
+<form th:object="${newEntry}" method="post">
+    <label>User: </label>
+    <input type="text" size="32" th:field="*{user}" />
+    <label>Comment: </label>
+    <input type="text" size="64" th:field="*{comment}" />
+    <input type="submit" value="Submit" />
+    <input type="reset" value="Reset" />
+</form>
+
+<img th:src="@{/images/schnauzer.jpg}" />
+
+</body>
+</html>
