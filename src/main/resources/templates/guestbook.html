@@ -20,22 +20,26 @@
         <th>User</th>
         <th>Comment</th>
         <th>Delete</th>
+        <th>Update</th>
     </tr>
     <tr th:each="entry: ${entries}">
         <td th:text="${entry.user}"></td>
         <td th:text="${entry.comment}"></td>
         <td><a th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
+        <td><a th:href="@{'/update/' + ${entry.id}}">Update</a></td>
     </tr>
 </table>
 </div>
 
-<h2>Add a New Comment</h2>
+<h2 th:text="${formHeader}"></h2>
 <form th:object="${newEntry}" method="post">
     <label>User: </label>
     <input type="text" size="32" th:field="*{user}" />
     <label>Comment: </label>
     <input type="text" size="64" th:field="*{comment}" />
     <input type="submit" value="Submit" />
+    <p class="warning" th:if="${#fields.hasErrors('user')}">User cannot be empty.</p>
+    <p class="warning" th:if="${#fields.hasErrors('comment')}">Comment cannot be empty.</p>
     <input type="reset" value="Reset" />
 </form>
 

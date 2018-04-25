@@ -25,3 +25,11 @@ a, a:visited {
 a:hover {
     color: olivedrab;
 }
+.warning {
+    color: yellowgreen;
+    background-color: cadetblue;
+    display: inline;
+    padding: 8px;
+    border: 2px yellow;
+    border-radius: 5px;
+}
