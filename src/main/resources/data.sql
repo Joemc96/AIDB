@@ -1,4 +1,4 @@
-INSERT INTO entries (COMMENT, USER) VALUES ('Great Comment', 'john');
-INSERT INTO entries (COMMENT, USER) VALUES ('Me Too!', 'jane');
-INSERT INTO entries (COMMENT, USER) VALUES ('I agree.', 'alice');
-INSERT INTO entries (COMMENT, USER) VALUES ('Of course!', 'john');
+INSERT INTO entries (COMMENT, USER) VALUES ('Miniature Schnauzer', 'Joe');
+INSERT INTO entries (COMMENT, USER) VALUES ('Black Labrador', 'Norman');
+INSERT INTO entries (COMMENT, USER) VALUES ('Ridgeback', 'Jennifer');
+INSERT INTO entries (COMMENT, USER) VALUES ('Jack Russell', 'Sharron');

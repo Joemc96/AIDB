@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1>Guest Book</h1>
+<h1>Dog Daycare Register</h1>
 
 
 <div th:if="${entries.isEmpty()}">
@@ -17,8 +17,8 @@
 <div th:if="${!entries.isEmpty()}">
 <table>
     <tr>
-        <th>User</th>
-        <th>Comment</th>
+        <th>Owner</th>
+        <th>Breed</th>
         <th>Delete</th>
         <th>Update</th>
     </tr>
@@ -33,13 +33,13 @@
 
 <h2 th:text="${formHeader}"></h2>
 <form th:object="${newEntry}" method="post">
-    <label>User: </label>
+    <label>Owner: </label>
     <input type="text" size="32" th:field="*{user}" />
-    <label>Comment: </label>
+    <label>Dog Breed: </label>
     <input type="text" size="64" th:field="*{comment}" />
     <input type="submit" value="Submit" />
-    <p class="warning" th:if="${#fields.hasErrors('user')}">User cannot be empty.</p>
-    <p class="warning" th:if="${#fields.hasErrors('comment')}">Comment cannot be empty.</p>
+    <p class="warning" th:if="${#fields.hasErrors('user')}">Owner cannot be empty.</p>
+    <p class="warning" th:if="${#fields.hasErrors('comment')}">Dog Breed cannot be empty.</p>
     <input type="reset" value="Reset" />
 </form>
 

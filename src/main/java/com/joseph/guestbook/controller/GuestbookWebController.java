@@ -29,7 +29,7 @@ public class GuestbookWebController {
 
     @GetMapping ("/")
     public String displayGuestBook (Model model) {
-        model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Add a New Comment");
+        model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Add a New Dog");
         model.addAttribute(ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries());
         model.addAttribute (NEW_ENTRY_TEMPLATE_ID, new GuestBookEntry());
         return GUESTBOOK_TEMPLATE;
@@ -47,7 +47,7 @@ public class GuestbookWebController {
             this.guestBookService.save(newEntry);
             return HOMEPAGE_REDIRECT;
         } else {
-            model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Correct the Comment");
+            model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Correct the Dog Breed");
             model.addAttribute(ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries());
             return GUESTBOOK_TEMPLATE;
         }
@@ -56,7 +56,7 @@ public class GuestbookWebController {
     @GetMapping ("update/{id}")
     public String editComment (Model model, @PathVariable Integer id) {
         model.addAttribute (ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries ());
-        model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Change the Comment");
+        model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Change the Dog Breed");
         model.addAttribute (NEW_ENTRY_TEMPLATE_ID, this.guestBookService.findOne (id));
         return GUESTBOOK_TEMPLATE;
     }
@@ -70,7 +70,7 @@ public class GuestbookWebController {
             this.guestBookService.save(current);
             return HOMEPAGE_REDIRECT;
         } else {
-            model.addAttribute(GUESTBOOK_FORM_HEADER_ID, "Please Correct the Comment");
+            model.addAttribute(GUESTBOOK_FORM_HEADER_ID, "Please Correct the Dog Breed");
             model.addAttribute(ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries());
             return GUESTBOOK_TEMPLATE;
         }
