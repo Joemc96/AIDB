@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @Controller
@@ -67,6 +68,7 @@ public class GuestbookWebController {
             GuestBookEntry current = this.guestBookService.findOne(id);
             current.setUser(newEntry.getUser());
             current.setComment(newEntry.getComment());
+            current.setDate(newEntry.getDate());
             this.guestBookService.save(current);
             return HOMEPAGE_REDIRECT;
         } else {
@@ -75,4 +77,10 @@ public class GuestbookWebController {
             return GUESTBOOK_TEMPLATE;
         }
     }
+
+    @GetMapping("/user/{user}")
+    public List<GuestBookEntry> findGuestBookEntryByUser (@PathVariable ("user") String user) {
+        return this.guestBookService.findGuestBookEntryByUser (user);
+    }
+
     }

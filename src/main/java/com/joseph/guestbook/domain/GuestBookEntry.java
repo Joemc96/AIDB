@@ -3,6 +3,7 @@ package com.joseph.guestbook.domain;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "entries")
@@ -16,6 +17,9 @@ public class GuestBookEntry {
     private String user;
     @NotEmpty
     private String comment;
+
+    //@Temporal(TemporalType.DATE)
+    private String date;
 
 
     public Integer getId() {
@@ -40,6 +44,14 @@ public class GuestBookEntry {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
 

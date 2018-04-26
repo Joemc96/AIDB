@@ -4,6 +4,7 @@ import com.joseph.guestbook.domain.GuestBookEntry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.joseph.guestbook.service.GuestBookService;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 

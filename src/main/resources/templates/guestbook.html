@@ -7,8 +7,13 @@
 </head>
 <body>
 
-<h1>Dog Daycare Register</h1>
+<h1 style="text-align:center;">Dog Daycare Register</h1>
 
+<h2>Search Owners</h2>
+<form action="#" th:action="@{/user}" th:object="${entries}" method="post">
+    <!--<<p>Owner: <input type="text" th:field="*{entry.user}" /></p>-->
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 
 <div th:if="${entries.isEmpty()}">
     <p>There are no comments in the Guestbook. What a pity.</p>
@@ -19,29 +24,34 @@
     <tr>
         <th>Owner</th>
         <th>Breed</th>
+        <th>Check In Date</th>
         <th>Delete</th>
         <th>Update</th>
     </tr>
     <tr th:each="entry: ${entries}">
         <td th:text="${entry.user}"></td>
         <td th:text="${entry.comment}"></td>
+        <td th:text="${entry.date}"></td>
         <td><a th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
         <td><a th:href="@{'/update/' + ${entry.id}}">Update</a></td>
     </tr>
 </table>
 </div>
 
-<h2 th:text="${formHeader}"></h2>
+<h2 style="text-align:center;" th:text="${formHeader}"></h2>
 <form th:object="${newEntry}" method="post">
     <label>Owner: </label>
-    <input type="text" size="32" th:field="*{user}" />
+    <input type="text" size="32" th:field="*{user}" /><br />
     <label>Dog Breed: </label>
-    <input type="text" size="64" th:field="*{comment}" />
+    <input type="text" size="64" th:field="*{comment}" /><br />
+    <label>Check In Date: </label>
+    <input type="date" size="10" th:field="*{date}" /><br />
     <input type="submit" value="Submit" />
+    <input type="reset" value="Reset" />
     <p class="warning" th:if="${#fields.hasErrors('user')}">Owner cannot be empty.</p>
     <p class="warning" th:if="${#fields.hasErrors('comment')}">Dog Breed cannot be empty.</p>
-    <input type="reset" value="Reset" />
 </form>
+<br />
 
 <img th:src="@{/images/schnauzer.jpg}" />
 
