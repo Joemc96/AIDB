@@ -9,11 +9,13 @@
 
 <h1 style="text-align:center;">Dog Daycare Register</h1>
 
-<h2>Search Owners</h2>
+<h2 style="text-align:center;">Search Owners</h2>
+<div align="center">
 <form action="#" th:action="@{/user}" th:object="${entries}" method="post">
     <!--<<p>Owner: <input type="text" th:field="*{entry.user}" /></p>-->
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
+</div>
 
 <div th:if="${entries.isEmpty()}">
     <p>There are no comments in the Guestbook. What a pity.</p>
@@ -39,21 +41,25 @@
 </div>
 
 <h2 style="text-align:center;" th:text="${formHeader}"></h2>
+<div align="center">
 <form th:object="${newEntry}" method="post">
-    <label>Owner: </label>
+    <label>Owner: </label><br />
     <input type="text" size="32" th:field="*{user}" /><br />
-    <label>Dog Breed: </label>
-    <input type="text" size="64" th:field="*{comment}" /><br />
-    <label>Check In Date: </label>
+    <label>Dog Breed: </label><br />
+    <input type="text" size="32" th:field="*{comment}" /><br />
+    <label>Check In Date: </label><br />
     <input type="date" size="10" th:field="*{date}" /><br />
     <input type="submit" value="Submit" />
     <input type="reset" value="Reset" />
     <p class="warning" th:if="${#fields.hasErrors('user')}">Owner cannot be empty.</p>
     <p class="warning" th:if="${#fields.hasErrors('comment')}">Dog Breed cannot be empty.</p>
 </form>
+</div>
 <br />
 
+<div align="center">
 <img th:src="@{/images/schnauzer.jpg}" />
+</div>
 
 </body>
 </html>
