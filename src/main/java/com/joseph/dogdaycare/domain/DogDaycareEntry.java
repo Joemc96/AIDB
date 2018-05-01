@@ -1,13 +1,12 @@
-package com.joseph.guestbook.domain;
+package com.joseph.dogdaycare.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "entries")
-public class GuestBookEntry {
+public class DogDaycareEntry {
 
 
 
@@ -16,9 +15,9 @@ public class GuestBookEntry {
     @Column (name = "entry_id")
     private Integer id;
     @NotEmpty
-    private String user;
+    private String owner;
     @NotEmpty
-    private String comment;
+    private String breed;
     @NotEmpty
     private String date;
 
@@ -31,20 +30,20 @@ public class GuestBookEntry {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public String getComment() {
-        return comment;
+    public String getBreed() {
+        return breed;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
     public String getDate() {

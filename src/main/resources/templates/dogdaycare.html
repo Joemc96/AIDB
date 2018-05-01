@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Spring Guestbook</title>
+    <title>Spring Dogdaycare</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
 </head>
 <body>
@@ -11,8 +11,8 @@
 
 <h2 style="text-align:center;">Search Owners</h2>
 <div align="center">
-<form action="#" th:action="@{/user}" th:object="${entries}" method="post">
-    <!--<<p>Owner: <input type="text" th:field="*{entry.user}" /></p>-->
+<form action="#" th:action="@{/owner}" th:object="${entries}" method="post">
+    <!--<<p>Owner: <input type="text" th:field="*{entry.owner}" /></p>-->
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 </div>
@@ -31,8 +31,8 @@
         <th>Update</th>
     </tr>
     <tr th:each="entry: ${entries}">
-        <td th:text="${entry.user}"></td>
-        <td th:text="${entry.comment}"></td>
+        <td th:text="${entry.owner}"></td>
+        <td th:text="${entry.breed}"></td>
         <td th:text="${entry.date}"></td>
         <td><a th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
         <td><a th:href="@{'/update/' + ${entry.id}}">Update</a></td>
@@ -44,15 +44,15 @@
 <div align="center">
 <form th:object="${newEntry}" method="post">
     <label>Owner: </label><br />
-    <input type="text" size="32" th:field="*{user}" /><br />
+    <input type="text" size="32" th:field="*{owner}" /><br />
     <label>Dog Breed: </label><br />
-    <input type="text" size="32" th:field="*{comment}" /><br />
+    <input type="text" size="32" th:field="*{breed}" /><br />
     <label>Check In Date: </label><br />
     <input type="date" size="10" th:field="*{date}" /><br />
     <input type="submit" value="Submit" />
     <input type="reset" value="Reset" />
-    <p class="warning" th:if="${#fields.hasErrors('user')}">Owner cannot be empty.</p>
-    <p class="warning" th:if="${#fields.hasErrors('comment')}">Dog Breed cannot be empty.</p>
+    <p class="warning" th:if="${#fields.hasErrors('owner')}">Owner cannot be empty.</p>
+    <p class="warning" th:if="${#fields.hasErrors('breed')}">Dog Breed cannot be empty.</p>
 </form>
 </div>
 <br />
