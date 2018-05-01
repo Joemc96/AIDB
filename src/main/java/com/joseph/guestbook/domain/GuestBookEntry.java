@@ -9,6 +9,8 @@ import java.util.Date;
 @Table(name = "entries")
 public class GuestBookEntry {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "entry_id")
@@ -52,5 +54,7 @@ public class GuestBookEntry {
     public void setDate(String date) {
         this.date = date;
     }
+
+
 }
 
